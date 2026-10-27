@@ -20,6 +20,106 @@
 .contact-card{display:grid;grid-template-columns:auto 1fr;gap:3vw;align-items:center;border-top:1px solid rgba(26,29,36,.4);padding-top:28px}.avatar{width:clamp(130px,15vw,210px);aspect-ratio:1;border-radius:50%;object-fit:cover;background:var(--ink);color:var(--cyan);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:clamp(44px,5vw,70px);letter-spacing:-.1em}.person h3{font-family:var(--display);font-size:clamp(30px,4vw,56px);line-height:1.05;letter-spacing:-.07em;margin:0}.person .role{font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin:8px 0 0}.contact-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 3vw;margin-top:22px;font-size:15px}.contact-list div{display:flex;flex-direction:column;gap:3px}.contact-list .k{font-size:10px;letter-spacing:.1em;text-transform:uppercase;opacity:.7}.contact-list a{border-bottom:1px solid var(--ink);align-self:flex-start}.contact-foot{display:flex;justify-content:space-between;gap:20px;font-size:11px;text-transform:uppercase;letter-spacing:.06em;margin-top:28px}.contact-foot a{border-bottom:1px solid var(--ink)}.fine{font-size:10px;line-height:1.5;opacity:.7;margin-top:14px;max-width:640px;text-transform:none;letter-spacing:0}
 @media(max-width:760px){.join{grid-template-columns:1fr;padding:14vw 5vw;gap:10vw}.contact-card{grid-template-columns:1fr}.contact-list{grid-template-columns:1fr}.contact-foot{flex-direction:column}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ticker-track{animation:none}*{transition:none!important}}
+
+/* Project category pages */
+
+.category-page{display:none;min-height:70vh;padding:5.5vw 3.2vw 9vw}
+body.category-mode main>section:not(.category-page){display:none!important}body.category-mode .footer{display:none!important}body.category-mode .category-page.active{display:block}
+.category-page.active{display:block}
+.category-back{display:inline-flex;align-items:center;gap:10px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid var(--ink);padding-bottom:8px;margin-bottom:4.5vw}
+.category-hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr);gap:5vw;align-items:center;margin-bottom:4vw;min-height:190px}
+.category-hero h1{font-family:var(--display);font-size:clamp(64px,10.5vw,144px);line-height:.86;letter-spacing:-.095em;margin:1.2vw 0 0;max-width:900px;overflow-wrap:anywhere}
+.category-kicker{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--red)}
+.category-intro-wrap{display:flex;align-items:center;min-height:100%;border-left:1px solid var(--line);padding-left:2.5vw}
+.category-hero p{font-size:14px;line-height:1.65;max-width:480px;margin:0;color:var(--muted)}
+.case-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.case-grid.people-layout,.case-grid.collab-layout{display:flex;gap:18px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:thin;padding:0 0 18px;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+.case-grid.people-layout .case-card,.case-grid.collab-layout .case-card{flex:0 0 clamp(250px,29vw,390px);scroll-snap-align:start}
+.case-card{position:relative;background:var(--ink);color:var(--paper);padding:0;min-width:0;overflow:hidden;display:flex;flex-direction:column;min-height:0}
+.case-card:nth-child(2n){background:var(--paper);color:var(--ink)}
+.case-image{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;background:#24272b}
+.case-image img{display:block;width:100%;height:100%;object-fit:cover;filter:grayscale(100%);transition:transform .6s ease}
+.case-card:hover .case-image img{transform:scale(1.04)}
+.case-image:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.45));pointer-events:none}
+.case-image-label{position:absolute;left:14px;top:14px;z-index:1;background:var(--paper);color:var(--ink);padding:7px 9px;font-size:9px;letter-spacing:.1em;text-transform:uppercase}
+.case-copy{padding:clamp(18px,2.2vw,30px);display:flex;flex-direction:column;flex:1}
+.case-number{font-size:10px;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
+.case-card h2{font-family:var(--display);font-size:clamp(28px,3.2vw,46px);line-height:.98;letter-spacing:-.065em;margin:24px 0 10px}
+.case-card p{font-size:13px;line-height:1.6;max-width:520px;margin:0;color:inherit;opacity:.82}
+.case-meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+.case-meta span{font-size:9px;letter-spacing:.06em;text-transform:uppercase;border:1px solid currentColor;padding:6px 8px;opacity:.8}
+.case-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:auto;padding:0 clamp(18px,2.2vw,30px) clamp(18px,2.2vw,30px);font-size:10px;text-transform:uppercase;letter-spacing:.08em}
+.case-bottom button{border:0;background:var(--red);color:var(--ink);padding:12px 14px;font-weight:800;font-size:10px;text-transform:uppercase;cursor:pointer}
+.case-card:nth-child(2n) .case-bottom button{background:var(--ink);color:var(--paper)}
+.case-controls{display:flex;justify-content:space-between;align-items:center;gap:16px;margin:0 0 22px}
+.case-controls p{font-size:10px;text-transform:uppercase;letter-spacing:.1em;margin:0;color:var(--muted)}
+.case-arrows{display:flex;gap:8px}
+.case-arrows button{width:42px;height:42px;border:1px solid var(--line);background:transparent;font-size:20px;cursor:pointer}
+.category-cta{margin-top:5vw;padding:4vw;background:var(--red);display:flex;justify-content:space-between;align-items:center;gap:25px}
+.category-cta h2{font-family:var(--display);font-size:clamp(38px,6vw,78px);line-height:.95;letter-spacing:-.08em;margin:0}
+.category-cta .cta{background:var(--ink);color:var(--paper);white-space:nowrap}
+/* Category pages: instant opening and distinct portfolio layouts */
+html:has(body.category-mode){scroll-behavior:auto!important}
+body.category-mode .category-page,body.category-mode .category-page *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+.category-hero h1{overflow-wrap:normal;word-break:normal}
+.case-grid.style-layout,.case-grid.special-layout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;overflow:visible;scroll-snap-type:none}
+.case-grid.style-layout .case-card,.case-grid.special-layout .case-card{min-width:0;flex:initial;scroll-snap-align:unset}
+.case-grid.people-layout .case-card{background:#171717;color:#f4f0e8;border-radius:2px}
+.case-grid.people-layout .case-image{aspect-ratio:4/5;background:#292929}
+.case-grid.people-layout .case-image img{filter:none}
+.case-grid.people-layout .case-image:after{background:linear-gradient(180deg,transparent 48%,rgba(0,0,0,.72))}
+.case-grid.people-layout .case-image-label{left:16px;top:16px;background:var(--red);color:var(--ink);font-weight:700}
+.case-grid.people-layout .case-copy{padding:20px 22px 24px}
+.case-grid.people-layout .case-number{font-size:10px;letter-spacing:.13em;color:var(--red);opacity:1}
+.case-grid.people-layout .case-card h2{font-size:clamp(30px,3vw,43px);margin:12px 0 8px;letter-spacing:-.045em}
+.case-grid.people-layout .case-meta span{border-color:rgba(255,255,255,.35)}
+.case-grid.people-layout .case-bottom{padding:0 22px 22px}
+.case-grid.collab-layout .case-card{background:#eee9df;color:#171717;border-top:5px solid var(--red)}
+.case-grid.collab-layout .case-card:nth-child(2n){background:#171717;color:#f4f0e8;border-top-color:#b9b4aa}
+.case-grid.collab-layout .case-image{aspect-ratio:16/9;background:#d2cdc3}
+.case-grid.collab-layout .case-image img{filter:grayscale(100%);mix-blend-mode:multiply}
+.case-grid.collab-layout .case-card:nth-child(2n) .case-image img{mix-blend-mode:normal}
+.case-grid.collab-layout .case-image:after{display:none}
+.case-grid.collab-layout .case-image-label{left:0;top:0;background:var(--red);color:var(--ink)}
+.case-grid.collab-layout .case-copy{padding:24px 24px 28px}
+.case-grid.collab-layout .case-card h2{font-size:clamp(26px,2.6vw,36px);margin:14px 0 10px;letter-spacing:-.045em}
+.case-grid.collab-layout .case-meta span{border-radius:999px;padding:7px 10px}
+.case-grid.collab-layout .case-bottom{padding:0 24px 24px}
+.case-grid.collab-layout .case-bottom button{background:var(--ink);color:var(--paper)}
+.case-grid.collab-layout .case-card:nth-child(2n) .case-bottom button{background:var(--red);color:var(--ink)}
+@media(max-width:760px){.category-page{padding:12vw 5vw}.category-back{margin-bottom:8vw}.category-hero{grid-template-columns:1fr;gap:18px;margin-bottom:9vw;min-height:0}.category-hero h1{font-size:19vw;line-height:.9;margin-top:3vw}.category-intro-wrap{border-left:0;border-top:1px solid var(--line);padding:16px 0 0;min-height:0}.category-hero p{font-size:13px}.case-grid{grid-template-columns:1fr;gap:18px}.case-grid.people-layout,.case-grid.collab-layout{display:flex;gap:14px}.case-grid.people-layout .case-card,.case-grid.collab-layout .case-card{flex-basis:82vw}.case-card h2{font-size:34px}.case-controls{margin-bottom:14px}.category-cta{padding:8vw 6vw;flex-direction:column;align-items:flex-start}.category-cta .cta{white-space:normal}}
+@media(max-width:760px){
+ .case-grid.style-layout,.case-grid.special-layout{grid-template-columns:1fr;gap:18px}
+ .case-grid.people-layout,.case-grid.collab-layout{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}
+ .case-grid.people-layout .case-card,.case-grid.collab-layout .case-card{flex:0 0 82vw}
+ .case-grid.people-layout .case-image{aspect-ratio:4/5}
+}
+
+/* Fixes for project category pages */
+.case-controls[hidden]{display:none!important}
+.case-grid.style-layout,.case-grid.special-layout{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));overflow:visible!important;scroll-snap-type:none!important}
+.case-grid.style-layout .case-card,.case-grid.special-layout .case-card{min-width:0!important;flex:initial!important}
+.category-page[data-category="collab"] .category-hero{grid-template-columns:minmax(0,1.15fr) minmax(260px,.85fr);gap:3vw}
+.category-page[data-category="collab"] .category-hero h1{font-size:clamp(42px,6.5vw,92px);line-height:.92;letter-spacing:-.075em;max-width:100%;overflow-wrap:normal;word-break:normal}
+.case-grid.collab-layout{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;overflow:visible!important;padding:0!important}
+.case-grid.collab-layout .partner-card{display:block;min-width:0;flex:none;cursor:pointer;position:relative;background:transparent!important;border:0!important;overflow:hidden;aspect-ratio:4/3;scroll-snap-align:unset;}
+.case-grid.collab-layout .partner-card .case-image{width:100%;height:100%;aspect-ratio:auto;background:#24272b}
+.case-grid.collab-layout .partner-card .case-image img{filter:none!important;mix-blend-mode:normal!important;width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+.case-grid.collab-layout .partner-card .case-image:after{display:block;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.22))}
+.case-grid.collab-layout .partner-card .case-image-label{display:none}
+.case-grid.collab-layout .partner-card .case-copy,.case-grid.collab-layout .partner-card .case-bottom{display:none!important}
+.case-grid.collab-layout .partner-card:hover .case-image img,.case-grid.collab-layout .partner-card:focus-visible .case-image img{transform:scale(1.035)}
+.case-grid.collab-layout .partner-card:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.collab-popup{position:fixed;inset:0;z-index:30;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(12,12,12,.72);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .32s ease,visibility .32s ease}
+.collab-popup.open{opacity:1;visibility:visible;pointer-events:auto}
+.collab-popup-panel{position:relative;width:min(720px,100%);max-height:90vh;overflow:auto;background:var(--paper);color:var(--ink);padding:clamp(24px,5vw,48px);opacity:0;transform:translateY(14px) scale(.985);transition:opacity .32s ease,transform .38s cubic-bezier(.2,.75,.25,1)}
+.collab-popup.open .collab-popup-panel{opacity:1;transform:translateY(0) scale(1)}
+@media(prefers-reduced-motion:reduce){.collab-popup,.collab-popup-panel{transition:none}}
+.collab-popup-kicker{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--red)}
+.collab-popup-panel h2{font-family:var(--display);font-size:clamp(34px,6vw,64px);line-height:.96;letter-spacing:-.07em;margin:18px 45px 16px 0}
+.collab-popup-panel p{font-size:14px;line-height:1.7;max-width:58ch;margin:0}
+@media(max-width:760px){.category-page[data-category="collab"] .category-hero{grid-template-columns:1fr;gap:18px}.category-page[data-category="collab"] .category-hero h1{font-size:clamp(44px,13vw,76px)}.case-grid.collab-layout{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.case-grid.style-layout,.case-grid.special-layout{grid-template-columns:1fr!important}}
+
 </style>
 </head>
 <body>
@@ -116,27 +216,103 @@
   <div class="contact-foot"><span>Коллаборации / спецпроекты / истории</span><a href="#top">Наверх ↑</a></div>
   <p class="fine">* Instagram принадлежит компании Meta, признанной экстремистской организацией и запрещённой в РФ.</p>
 </section>
+<section class="category-page" id="categoryPage" aria-live="polite">
+  <a class="category-back" href="#projects" id="categoryBack">← Все направления</a>
+  <div class="category-hero"><div><div class="category-kicker" id="categoryKicker">ВНЕ / Проекты</div><h1 id="categoryHeading">ЛЮДИ</h1></div><div class="category-intro-wrap"><p id="categoryIntro"></p></div></div>
+  <div class="case-controls" id="caseControls" hidden><p id="caseHint">Листайте, чтобы увидеть больше</p><div class="case-arrows"><button type="button" id="casePrev" aria-label="Предыдущие карточки">←</button><button type="button" id="caseNext" aria-label="Следующие карточки">→</button></div></div>
+  <div class="case-grid" id="caseGrid"></div>
+  <div class="category-cta"><h2>ЕСТЬ ИДЕЯ<br>ДЛЯ ЭТОГО РАЗДЕЛА?</h2><button class="cta" id="categoryRequest">Обсудить проект <span class="arrow">↗</span></button></div>
+</section>
 </main>
 <footer class="footer"><strong>ВНЕ</strong><span>Хоккей × люди × культура</span><span>© ВНЕ — концепт сайта</span></footer>
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-  <div class="modal-panel"><button class="close" id="closeModal" aria-label="Закрыть">×</button><div class="eyebrow"><span class="dot"></span> Спецпроект / концепция</div><h2 id="modalTitle">ЗА ПРЕДЕЛАМИ ЛЬДА</h2><p id="modalText">История человека, а не статистика игрока. Формат, герой и визуальная концепция могут меняться под конкретный материал.</p><form id="ideaForm"><div class="form-row"><input id="emailInput" name="email" type="email" placeholder="Твой email" aria-label="Твой email" required><button type="submit">Обсудить идею ↗</button></div><div class="toast" id="toast" aria-live="polite"></div></form></div>
+  <div class="modal-panel"><button class="close" id="closeModal" aria-label="Закрыть">×</button><div class="eyebrow"><span class="dot"></span> <span id="modalKicker">Проект / ВНЕ</span></div><h2 id="modalTitle">ЗА ПРЕДЕЛАМИ ЛЬДА</h2><p id="modalText">История человека, а не статистика игрока. Формат, герой и визуальная концепция могут меняться под конкретный материал.</p><form id="ideaForm"><div class="form-row"><input id="emailInput" name="email" type="email" placeholder="Твой email" aria-label="Твой email" required><button type="submit">Обсудить идею ↗</button></div><div class="toast" id="toast" aria-live="polite"></div></form></div>
+</div>
+
+<div class="collab-popup" id="collabPopup" role="dialog" aria-modal="true" aria-labelledby="collabPopupTitle">
+  <div class="collab-popup-panel"><button class="close" id="closeCollabPopup" aria-label="Закрыть">×</button><div class="collab-popup-kicker" id="collabPopupKicker">ВНЕ / Коллаборация</div><h2 id="collabPopupTitle"></h2><p id="collabPopupText"></p></div>
 </div>
 <script>
 const nav=document.getElementById('nav'),menuBtn=document.getElementById('menuBtn');
 menuBtn.addEventListener('click',()=>{const open=nav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',open);menuBtn.textContent=open?'Закрыть ×':'Меню +'});
 nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');menuBtn.textContent='Меню +'}));
 const modal=document.getElementById('modal'),title=document.getElementById('modalTitle'),copy=document.getElementById('modalText');
-const projects={
- portrait:['ЗА ПРЕДЕЛАМИ ЛЬДА','Большое интервью о человеке, его пути, привычках и мире за пределами хоккейной площадки.'],
- style:['ЛИЧНЫЙ КОД','Фотосерия о стиле, деталях и визуальном языке игроков вне формы и игровой роли.'],
- culture:['НЕ ТОЛЬКО СПОРТ','Коллаборации на стыке хоккея, музыки, кино и моды: проекты, в которых спорт говорит на языке культуры.'],
- special:['СОБИРАЕМ СВОЙ МИР','Коллаборации с клубами и брендами, документальные истории и проекты на стыке поп-культуры и хоккея.']
+const modalKicker=document.getElementById('modalKicker');
+const categoryPage=document.getElementById('categoryPage');
+const categoryHeading=document.getElementById('categoryHeading'),categoryKicker=document.getElementById('categoryKicker'),categoryIntro=document.getElementById('categoryIntro'),caseGrid=document.getElementById('caseGrid');
+const categories={
+ portrait:{slug:'people',label:'Люди',kicker:'ВНЕ / 01 — Люди',heading:'ЛЮДИ',intro:'Хоккеисты, актёры, авторы и другие герои ВНЕ. Знакомьтесь с людьми, с которыми мы создаём истории о хоккее и культуре.',type:'people',items:[
+  {tag:'ГЕРОЙ / 01',name:'Имя Фамилия',role:'Игрок / команда',desc:'Коротко о герое и материале: интервью, портрет или история о жизни за пределами льда.',meta:['Интервью','Портрет']},
+  {tag:'ГЕРОЙ / 02',name:'Имя Фамилия',role:'Актёр / автор',desc:'Кто этот человек, чем он интересен аудитории и в рамках какого материала мы с ним работали.',meta:['Спецвыпуск','Культура']},
+  {tag:'ГЕРОЙ / 03',name:'Имя Фамилия',role:'Хоккейная культура',desc:'Короткое описание совместного материала или истории, раскрывающей героя с неожиданной стороны.',meta:['История','ВНЕ']}
+ ]},
+ style:{slug:'style',label:'Стиль',kicker:'ВНЕ / 02 — Стиль',heading:'СТИЛЬ',intro:'Фотосессии и визуальные истории ВНЕ. У каждой съёмки — своя идея, настроение и короткая история о том, как мы соединяем хоккей с модой, кино и поп-культурой.',type:'style',items:[
+  {tag:'СЪЁМКА / 01',name:'Название съёмки',role:'Портретная серия',desc:'Концепция, визуальный референс и задача съёмки — несколько предложений о том, как родилась эта история.',meta:['Фотосессия','Портрет']},
+  {tag:'СЪЁМКА / 02',name:'Хоккей × поп-культура',role:'Концептуальная съёмка',desc:'Как хоккейная эстетика встречается с кино, музыкой или модой и превращается в отдельный визуальный мир.',meta:['Концепт','Редакционная съёмка']},
+  {tag:'СЪЁМКА / 03',name:'Название бренд-съёмки',role:'Съёмка с партнёром',desc:'Кратко о задаче, идее и результате брендовой съёмки — с акцентом на визуальное решение и героев.',meta:['Бренд','Креатив']}
+ ]},
+ culture:{slug:'collaborations',label:'Коллаборации',kicker:'ВНЕ / 03 — Коллаборации',heading:'КОЛЛАБОРАЦИИ',intro:'Клубы, бренды, медиа и партнёры, с которыми мы создавали общие проекты. Здесь можно показать партнёра, формат сотрудничества и то, что получилось на выходе.',type:'collab',items:[
+  {tag:'ПАРТНЁР / 01',name:'Название клуба или бренда',role:'Клуб / команда',desc:'В чём заключалось партнёрство, какой контент или активацию мы сделали вместе и для какой аудитории.',meta:['Партнёрство','Контент']},
+  {tag:'ПАРТНЁР / 02',name:'Название бренда',role:'Бренд / продукт',desc:'Общая идея, роль бренда и формат интеграции — от креатива до готового материала.',meta:['Бренд','Креатив']},
+  {tag:'ПАРТНЁР / 03',name:'Название медиа или проекта',role:'Медиа / автор',desc:'Как объединили аудитории и экспертизу, чтобы рассказать историю по-новому.',meta:['Медиа','Коллаборация']}
+ ]},
+ special:{slug:'special-projects',label:'Спецпроекты',kicker:'ВНЕ / 04 — Спецпроекты',heading:'СПЕЦПРОЕКТЫ',intro:'Конкретные проекты с идеей, участниками и результатом: события, специальные выпуски, социальные инициативы и большие коллаборации. Каждый кейс раскрывает задачу, реализацию и итог.',type:'special',items:[
+  {tag:'КЕЙС / 01',name:'ВНЕ — матч',role:'Хоккеисты против актёров',desc:'Спортивно-развлекательное событие на стыке хоккея и поп-культуры. Здесь будут описаны концепция, участники, партнёры и результаты проекта.',meta:['Событие','Офлайн']},
+  {tag:'КЕЙС / 02',name:'Название спецпроекта',role:'Социальная / культурная инициатива',desc:'Проблема или задача, идея проекта, ключевые участники и то, какой результат удалось получить.',meta:['Спецпроект','Партнёрство']},
+  {tag:'КЕЙС / 03',name:'Название большого формата',role:'Контент + активация',desc:'Мультиформатный проект: как контент, партнёрские интеграции и офлайн-активности объединились в одну историю.',meta:['Кампания','Мультиформат']}
+ ]}
 };
-document.querySelectorAll('.project-card').forEach(card=>card.addEventListener('click',()=>{const p=projects[card.dataset.project];title.textContent=p[0];copy.textContent=p[1];modal.classList.add('open');document.body.style.overflow='hidden'}));
+let activeCategory='special';
+function openRequest(key){const c=categories[key]||categories[activeCategory]||categories.special;activeCategory=key||activeCategory;title.textContent=c.label.toUpperCase();copy.textContent='Расскажите нам о вашей идее для направления «'+c.label+'». Обсудим формат, героев и возможное сотрудничество.';modalKicker.textContent=c.kicker;modal.classList.add('open');document.body.style.overflow='hidden'}
+const collabPopup=document.getElementById('collabPopup');
+function openCollabPopup(item,c){document.getElementById('collabPopupKicker').textContent=item.tag+' · '+c.label;document.getElementById('collabPopupTitle').textContent=item.name;document.getElementById('collabPopupText').textContent=item.desc;collabPopup.classList.add('open');document.body.style.overflow='hidden'}
+function closeCollabPopup(){collabPopup.classList.remove('open');document.body.style.overflow=''}
+document.getElementById('closeCollabPopup').addEventListener('click',closeCollabPopup);
+collabPopup.addEventListener('click',e=>{if(e.target===collabPopup)closeCollabPopup()});
+
+function imageForProject(key){const img=document.querySelector('.project-card[data-project="'+key+'"] img');return img?img.src:''}
+function renderCategory(key){
+ const c=Object.values(categories).find(x=>x.slug===key);
+ if(!c){document.body.classList.remove('category-mode');categoryPage.classList.remove('active');return false}
+ activeCategory=Object.keys(categories).find(k=>categories[k]===c);
+ categoryPage.dataset.category=c.type;
+ categoryKicker.textContent=c.kicker;categoryHeading.innerHTML=c.slug==='special-projects'?'СПЕЦ<br>ПРОЕКТЫ':c.heading;categoryIntro.textContent=c.intro;
+ caseGrid.innerHTML='';caseGrid.className='case-grid '+(c.type==='people'?'people-layout':c.type==='collab'?'collab-layout':c.type==='style'?'style-layout':'special-layout');
+ const controls=document.getElementById('caseControls');controls.hidden=!(c.type==='people'||c.type==='collab');
+ const imageKeys=c.type==='people'?['portrait','culture','special']:c.type==='collab'?['culture','style','special']:c.type==='style'?['style','portrait','culture']:['special','culture','style'];
+ c.items.forEach((item,i)=>{
+  const article=document.createElement('article');article.className='case-card '+(c.type==='people'?'person-card':c.type==='collab'?'partner-card':c.type==='style'?'shoot-card':'project-case-card');
+  const imageKeys=c.type==='people'?['portrait','culture','special']:c.type==='collab'?['culture','style','special']:c.type==='style'?['style','portrait','culture']:['special','culture','style'];
+  const image=imageForProject(imageKeys[i]);
+  article.innerHTML='<div class="case-image"><img alt="" loading="lazy"><span class="case-image-label"></span></div><div class="case-copy"><div class="case-number"></div><h2></h2><p></p><div class="case-meta"></div></div><div class="case-bottom"><span></span><button type="button">Обсудить ↗</button></div>';
+  const img=article.querySelector('img');if(image)img.src=image;else article.querySelector('.case-image').style.background='var(--ink)';
+  img.alt=item.name;
+  article.querySelector('.case-image-label').textContent=item.tag;article.querySelector('.case-number').textContent=item.role;article.querySelector('h2').textContent=item.name;article.querySelector('p').textContent=item.desc;article.querySelector('.case-bottom span').textContent='ВНЕ / '+c.label;
+  const meta=article.querySelector('.case-meta');item.meta.forEach(tag=>{const span=document.createElement('span');span.textContent=tag;meta.appendChild(span)});
+  if(c.type==='collab'){
+   article.setAttribute('role','button');article.setAttribute('tabindex','0');article.setAttribute('aria-label','Подробнее о коллаборации: '+item.name);
+   const showCollab=()=>openCollabPopup(item,c);
+   article.addEventListener('click',showCollab);article.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();showCollab()}});
+  }else article.querySelector('button').addEventListener('click',()=>openRequest(activeCategory));
+  caseGrid.appendChild(article);
+ });
+ document.body.classList.add('category-mode');categoryPage.classList.add('active');document.documentElement.style.scrollBehavior='auto';window.scrollTo({top:0,left:0,behavior:'auto'});nav.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');menuBtn.textContent='Меню +';return true
+}
+function handleRoute(){
+ const route=location.hash.replace(/^#\/?/,'');
+ if(route.startsWith('projects/')){if(renderCategory(route.slice('projects/'.length))){document.documentElement.style.scrollBehavior='auto';window.scrollTo({top:0,left:0,behavior:'auto'});}return}
+ document.body.classList.remove('category-mode');categoryPage.classList.remove('active');
+ if(route==='projects'){requestAnimationFrame(()=>document.getElementById('projects').scrollIntoView({block:'start',behavior:'auto'}))}
+}
+document.getElementById('categoryBack').addEventListener('click',event=>{event.preventDefault();document.body.classList.remove('category-mode');categoryPage.classList.remove('active');if(location.hash!=='#projects'){location.hash='#projects'}else{document.getElementById('projects').scrollIntoView({block:'start',behavior:'auto'})}});
+document.getElementById('categoryRequest').addEventListener('click',()=>openRequest(activeCategory));
+document.getElementById('casePrev').addEventListener('click',()=>caseGrid.scrollBy({left:-caseGrid.clientWidth*.8,behavior:'smooth'}));
+document.getElementById('caseNext').addEventListener('click',()=>caseGrid.scrollBy({left:caseGrid.clientWidth*.8,behavior:'smooth'}));
+
 function closeModal(){modal.classList.remove('open');document.body.style.overflow=''}
 document.getElementById('closeModal').addEventListener('click',closeModal);
 modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeCollabPopup()}});
 const MAIL_ENDPOINT='https://formsubmit.co/ajax/vnemedia@yandex.ru';
 async function sendMail(data){
  const r=await fetch(MAIL_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_captcha:'false',_template:'table',...data})});
@@ -150,12 +326,34 @@ function bindForm(form,toastEl,build,okText){
   if(fd._honey)return;
   btn.disabled=true;toastEl.textContent='Отправляем…';
   try{await sendMail(build(fd));form.reset();toastEl.textContent=okText}
-  catch(err){toastEl.textContent='Не получилось отправить. Напишите нам: vnemedia@yandex.ru'}
+  catch(err){const subject=build(fd)._subject||'ВНЕ: заявка';const body=Object.entries(build(fd)).filter(([k])=>!k.startsWith('_')).map(([k,v])=>k+': '+v).join('\n');toastEl.innerHTML='Автоматическая отправка не сработала. <a href="mailto:vnemedia@yandex.ru?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body)+'">Открыть письмо и отправить заявку вручную ↗</a> · vnemedia@yandex.ru'}
   btn.disabled=false;
  });
 }
 bindForm(document.getElementById('ideaForm'),document.getElementById('toast'),fd=>({_subject:'ВНЕ: идея / '+title.textContent,'Проект':title.textContent,'E-mail':fd.email}),'Спасибо! Мы напишем вам на почту.');
+
 bindForm(document.getElementById('joinForm'),document.getElementById('joinToast'),fd=>({_subject:'ВНЕ: заявка в команду / '+fd.direction,'Имя':fd.name,'Контакт':fd.contact,'Направление':fd.direction,'О себе':fd.about,'Портфолио':fd.portfolio}),'Заявка отправлена. Спасибо, мы свяжемся с вами!');
+
+// Навигация по карточкам направлений и корректное возвращение к блоку «Проекты».
+const projectRoutes={portrait:'people',style:'style',culture:'collaborations',special:'special-projects'};
+document.querySelectorAll('.project-card[data-project]').forEach(card=>{
+  const openCard=()=>{
+    const slug=projectRoutes[card.dataset.project];
+    if(!slug)return;
+    const nextHash='#/projects/'+slug;
+    if(location.hash===nextHash){renderCategory(slug)}else{location.hash=nextHash}
+  };
+  card.setAttribute('role','link');
+  card.setAttribute('tabindex','0');
+  card.style.cursor='pointer';
+  card.addEventListener('click',openCard);
+  card.addEventListener('keydown',event=>{
+    if(event.key==='Enter'||event.key===' '){event.preventDefault();openCard()}
+  });
+});
+window.addEventListener('hashchange',handleRoute);
+handleRoute();
+
 </script>
 </body>
 </html>
